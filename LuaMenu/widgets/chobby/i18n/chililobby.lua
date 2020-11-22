@@ -29,6 +29,7 @@ return {
 		confirm = 'Confirm',
 		login_noun = 'Login',
 		login_verb = 'Login',
+		lan_game = 'Lan Game',
 		profile = 'Profile',
 		home = 'Home',
 		error_log = 'Error log',

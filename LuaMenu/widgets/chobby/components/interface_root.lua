@@ -351,6 +351,18 @@ function GetInterfaceRoot(optionsParent, mainWindowParent, fontFunction)
 		OnClick = {MakeExitPopup},
 	}
 
+	-- Host Lan Popup
+		local hostLanBattleWindow = Window:New {
+			caption = "",
+			name = "hostLanBattle",
+			parent = WG.Chobby.lobbyInterfaceHolder,
+			width = 530,
+			height = 310,
+			resizable = false,
+			draggable = false,
+			classname = "main_window",
+		}
+
 	-----------------------------------
 	-- Submenu window
 	-----------------------------------
@@ -441,6 +453,7 @@ function GetInterfaceRoot(optionsParent, mainWindowParent, fontFunction)
 		multiPlayerTabs[#multiPlayerTabs + 1] = {name = "matchmaking", control = queueListWindow}
 	end
 	multiPlayerTabs[#multiPlayerTabs + 1] = {name = "battle_list", control = battleListWindow}
+	multiPlayerTabs[#multiPlayerTabs + 1] = {name = "lan_game", control = hostLanBattleWindow}
 	if not WG.Chobby.Configuration.gameConfig.disablePlanetwars then
 		multiPlayerTabs[#multiPlayerTabs + 1] = {name = "planetwars", control = planetwarsListWindow}
 	end
