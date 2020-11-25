@@ -356,13 +356,71 @@ function GetInterfaceRoot(optionsParent, mainWindowParent, fontFunction)
 			caption = "",
 			name = "hostLanBattle",
 			parent = WG.Chobby.lobbyInterfaceHolder,
-			width = 530,
-			height = 310,
+			width = 800,
+			height = 500,
 			resizable = false,
 			draggable = false,
 			classname = "main_window",
 		}
 
+		local ipEdit = EditBox:New {
+			x = 220,
+			width = 260,
+			y = 110,
+			height = 35,
+			text = "",
+			font = Configuration:GetFont(3),
+			useIME = false,
+			parent = hostLanBattleWindow,
+		}
+
+		local userEdit = EditBox:New {
+			x = 450,
+			width = 260,
+			y = 110,
+			height = 35,
+			text = "",
+			font = Configuration:GetFont(3),
+			useIME = false,
+			parent = hostLanBattleWindow,
+		}
+
+		local buttonHost = Button:New {
+			right = 400,
+			width = 135,
+			bottom = 1,
+			height = 70,
+			caption = i18n("host"),
+			font = Configuration:GetFont(3),
+			parent = hostLanBattleWindow,
+			classname = "action_button",
+			OnClick = {
+				function()
+					HostBattle()
+				end
+			},
+		}
+
+		local buttonJoin = Button:New {
+			right = 150,
+			width = 135,
+			bottom = 1,
+			height = 70,
+			caption = i18n("join"),
+			font = Configuration:GetFont(3),
+			parent = hostLanBattleWindow,
+			classname = "action_button",
+			OnClick = {
+				function()
+					JoinBattleWithIP(userEdit.text, ipEdit.text)
+				end
+			},
+		}
+
+	local function JoinBattleWithIP(userName, ip)
+		self:_CallListeners("OnJoinBattleRequest", userName, ip)
+
+	end
 	-----------------------------------
 	-- Submenu window
 	-----------------------------------
